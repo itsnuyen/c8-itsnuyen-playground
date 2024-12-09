@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.28.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.6.0">
+  <bpmn:process id="Process_SimpleTestCase" name="SimpleTestCase" isExecutable="true">
+    <bpmn:task id="Activity_GetMessage" name="Get Message">
+      <bpmn:incoming>Flow_11mesjw</bpmn:incoming>
+      <bpmn:incoming>Flow_1qyklwi</bpmn:incoming>
+      <bpmn:outgoing>Flow_1xhpb9t</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_11mesjw" sourceRef="StartEvent_ReceivedTestMessage" targetRef="Activity_GetMessage" />
+    <bpmn:endEvent id="Event_GotMessage" name="Got Message">
+      <bpmn:incoming>Flow_1xhpb9t</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1xhpb9t" sourceRef="Activity_GetMessage" targetRef="Event_GotMessage" />
+    <bpmn:startEvent id="StartEvent_ReceivedTestMessage" name="Received Test Message">
+      <bpmn:outgoing>Flow_11mesjw</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_14r29dq" messageRef="Message_3atg8qc" />
+    </bpmn:startEvent>
+    <bpmn:startEvent id="Event_ProcessStartNormal" name="Start Process Normal">
+      <bpmn:outgoing>Flow_1qyklwi</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1qyklwi" sourceRef="Event_ProcessStartNormal" targetRef="Activity_GetMessage" />
+  </bpmn:process>
+  <bpmn:message id="Message_3atg8qc" name="Message_tmp" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_SimpleTestCase">
+      <bpmndi:BPMNShape id="Activity_1lkepm8_di" bpmnElement="Activity_GetMessage">
+        <dc:Bounds x="240" y="148" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0vj5ba9_di" bpmnElement="Event_GotMessage">
+        <dc:Bounds x="402" y="170" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="390" y="213" width="66" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1hy45yr_di" bpmnElement="Event_ProcessStartNormal">
+        <dc:Bounds x="142" y="242" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="128" y="285" width="67" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_1k48o2y_di" bpmnElement="StartEvent_ReceivedTestMessage">
+        <dc:Bounds x="142" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="126" y="145" width="69" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_11mesjw_di" bpmnElement="Flow_11mesjw">
+        <di:waypoint x="178" y="120" />
+        <di:waypoint x="209" y="120" />
+        <di:waypoint x="209" y="188" />
+        <di:waypoint x="240" y="188" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1qyklwi_di" bpmnElement="Flow_1qyklwi">
+        <di:waypoint x="178" y="260" />
+        <di:waypoint x="209" y="260" />
+        <di:waypoint x="209" y="188" />
+        <di:waypoint x="240" y="188" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1xhpb9t_di" bpmnElement="Flow_1xhpb9t">
+        <di:waypoint x="340" y="188" />
+        <di:waypoint x="402" y="188" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
